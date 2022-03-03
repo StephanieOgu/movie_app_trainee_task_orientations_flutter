@@ -47,7 +47,7 @@ class FilmsAppTheme {
         primary: color,
         onPrimary: AppColors.white,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
       ),
     );
