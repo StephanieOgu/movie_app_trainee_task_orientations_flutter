@@ -1,12 +1,12 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-class MovieAppLocalizations {
+class MoviesAppLocalizations {
 
-  static MovieAppLocalizations? of(BuildContext context) {
-    return Localizations.of<MovieAppLocalizations>(
+  static MoviesAppLocalizations? of(BuildContext context) {
+    return Localizations.of<MoviesAppLocalizations>(
       context,
-      MovieAppLocalizations,
+      MoviesAppLocalizations,
     );
   }
   static String get mainScreenText => 'Choose your architecture pattern:)';
@@ -27,10 +27,10 @@ class MovieAppLocalizations {
 }
 
 class MovieAppLocalizationsDelegate
-    extends LocalizationsDelegate<MovieAppLocalizations> {
+    extends LocalizationsDelegate<MoviesAppLocalizations> {
   @override
-  Future<MovieAppLocalizations> load(Locale locale) =>
-      Future(() => MovieAppLocalizations());
+  Future<MoviesAppLocalizations> load(Locale locale) =>
+      Future(() => MoviesAppLocalizations());
 
   @override
   bool shouldReload(MovieAppLocalizationsDelegate old) => false;
