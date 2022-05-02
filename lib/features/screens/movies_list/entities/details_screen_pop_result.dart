@@ -1,0 +1,4 @@
+enum DetailsScreenPopResult {
+  changeOrientation,
+  unselectMovie,
+}

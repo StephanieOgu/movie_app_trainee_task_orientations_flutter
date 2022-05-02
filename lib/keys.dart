@@ -1,3 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-PageStorageKey get moviesListKey => const PageStorageKey('Movies List Key');
+//ignore: avoid_classes_with_only_static_members
+class AppKeys {
+
+  static PageStorageKey get moviesListKey =>
+      const PageStorageKey('Movies List Key');
+}
