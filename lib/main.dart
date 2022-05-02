@@ -1,17 +1,15 @@
-import 'package:films_app_trainee_task/presentation/features/home/home_screen.dart';
-import 'package:films_app_trainee_task/presentation/theme/theme.dart';
-import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
+import 'package:films_app_trainee_task/domain/entities/movie.dart';
+import 'package:films_app_trainee_task/features/screens/entrance/entrance_screen.dart';
+import 'package:films_app_trainee_task/features/screens/movie_details/movie_details_screen.dart';
+import 'package:films_app_trainee_task/features/screens/movies_list/bloc/movie_list_cubit_screen.dart';
+import 'package:films_app_trainee_task/features/screens/movies_list/entities/details_screen_pop_result.dart';
+import 'package:films_app_trainee_task/features/theme/theme.dart';
+import 'package:films_app_trainee_task/localisation.dart';
 
-import 'data/repositories/movies_repository.dart';
+import 'package:flutter/material.dart';
 
 void main() {
-  setUp();
   runApp(const MoviesApp());
-}
-
-void setUp() {
-  GetIt.I.registerSingleton<MoviesRepository>(MoviesRepository());
 }
 
 class MoviesApp extends StatelessWidget {
@@ -21,7 +19,28 @@ class MoviesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: MoviesAppTheme.lightTheme,
-      home: const HomeScreen(),
+      initialRoute: MoviesAppLocalizations.entranceScreenName,
+      routes: {
+        MoviesAppLocalizations.entranceScreenName: (context) =>
+            const EntranceScreen(),
+        MoviesAppLocalizations.moviesListCubitScreenName: (context) =>
+            const MoviesListCubitScreen(),
+      },
+      onGenerateRoute: (RouteSettings settings) {
+        if (settings.name ==
+            MoviesAppLocalizations.movieDetailsCubitScreenName) {
+          if (settings.arguments != null) {
+            final args = settings.arguments! as Set;
+            final selectedMovie = args.first as Movie;
+            return MaterialPageRoute<DetailsScreenPopResult>(
+              settings: settings,
+              builder: (context) =>
+                  MovieDetailsScreen(selectedMovie: selectedMovie),
+            );
+          }
+        }
+        return null;
+      },
     );
   }
 }

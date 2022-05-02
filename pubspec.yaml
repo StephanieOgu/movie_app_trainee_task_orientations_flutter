@@ -6,22 +6,40 @@ version: 1.0.0+1
 
 environment:
   sdk: '>=2.16.0 <3.0.0'
-  flutter: '^2.10.0'
+  flutter: '2.10.0'
 
 dependencies:
+  bloc: 8.0.2
+  carousel_slider: 4.0.0
+  cupertino_icons: 1.0.2
+  dio: 4.0.4
+  equatable: 2.0.3
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  equatable: ^2.0.3
-  get_it: ^7.2.0
-  flutter_rating_bar: ^4.0.0
+  flutter_bloc: 8.0.1
+  flutter_rating_bar: 4.0.0
+  get_it: 7.2.0
+  http: 0.13.4
+  provider: 6.0.2
+  sqflite: 2.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+#  lint: 1.0.0
 
 flutter:
+  fonts:
+    - family: SanFrancisco
+      fonts:
+        - asset: assets/fonts/sfr/SF-Pro-Display-Regular.otf
+        - asset: assets/fonts/sfr/SF-Pro-Text-SemiboldItalic.otf
+          style: italic
+        - asset: assets/fonts/sfr/SF-Pro-Display-Black.otf
+          weight: 700
+
   uses-material-design: true
   assets:
-    - assets/images/
+    - assets/
+    - assets/images/entrance_screen_gallery/
+    - assets/images/films_list_screen/
